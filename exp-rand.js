@@ -1,17 +1,3 @@
-// var stimuliExpRandomizer = {},
-//     stimuliExpRandomizerRandomNb = Math.floor(Math.random() * 10);
-
-// if (stimuliExpRandomizerRandomNb < 3){
-//     stimuliExpRandomizerRandomNb = 0;
-// }
-// else if (stimuliExpRandomizerRandomNb < 6){
-//     stimuliExpRandomizerRandomNb = 1;
-// }
-// else {
-//     stimuliExpRandomizerRandomNb = 2;
-// }
-
-
 var stimuliExpRandomizer = {},
     stimuliExpRandomizerRandomNb = Math.floor(Math.random() * 100);
 
