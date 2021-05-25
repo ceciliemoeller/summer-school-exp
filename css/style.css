@@ -1,0 +1,56 @@
+/* CSS for the jspsych implementation of the RT sub-experiment of the Danish Gold-MSI validation study */
+ 
+
+
+body {
+   background-color: whitesmoke;
+   color: black;
+}
+p, div {
+    color: black;
+}
+
+a {
+    color: black;
+   font-weight: bold;
+   text-decoration: underline;
+}
+
+.form-control .item,
+.form-control .option {
+    color:black;
+}
+/* .instr-img {
+   display: inline-block; 
+   margin-right: 30px;
+} */
+.jspsych-content-wrapper{
+    margin:0 auto;
+    max-width: 950px;     
+}
+.smallgap-above{
+   margin-top: 20px;
+}
+.gap-above{
+    margin-top: 40px;
+}
+.largegap-above{
+    margin-top:60px;
+}
+
+.center-img img{
+   max-width: 680px;
+   margin: 20px auto;
+}
+
+.font{
+    font-size:60px;
+}
+
+.font15{
+    font-size:15px;
+}
+
+.font20{
+    font-size:20px;
+}
