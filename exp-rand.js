@@ -11,6 +11,7 @@
 //     stimuliExpRandomizerRandomNb = 2;
 // }
 
+
 var stimuliExpRandomizer = {},
     stimuliExpRandomizerRandomNb = Math.floor(Math.random() * 100);
 
