@@ -4,7 +4,7 @@
 # # # an online polyrhythm study
 # # # Date:16/05- 2021
 # # # Author: Cecilie Møller
-# # # Project: Neuromusic VII - Summer School 2021
+# # # Project: Neuromusic VII - Aarhus Summer School in Music Neuroscience, 2021
 # # ###################################################
 
 #install.packages("devtools")
@@ -12,7 +12,6 @@
 
 library(htmltools)
 library(psychTestR)
-
 library(tibble)
 
 
@@ -85,7 +84,7 @@ welcome <-
       p(strong("Aarhus Summer School in Music Neuroscience, June 14-17, 2021!")),
       p("In the experiment you will hear some musical rhythms, and your task is to simply tap along to the beat of the rhythms, using the designated button. Afterwards, we will ask you about your age, gender, and musical background."),
       p("Recommendations: take the test in quiet surroundings, use headphones, and do not use the browser 'Safari'."),
-      p("You can expect this to take 5-7 minutes."),
+      p("You can expect this to take 7-10 minutes."),
       p("Please note: You have to be at least 18 years old to participate."),
       HTML("<br>"),
       p("The data you generate is completely anonymous and will be used for teaching purposes and shared with students. It may also be shared with other researchers in a publicly available research data repository, provided you allow us to do so when you are done with the experiment. Please note that your participation is completely voluntary and you can leave the experiment at any time by simply closing the browser window. If you have questions, you can always contact us at cecilie@clin.au.dk"),
@@ -139,8 +138,8 @@ sound_check<-one_button_page(
 
 age <-dropdown_page(
   label = "age",
-  prompt = div(h4(strong("We would love to know more about you...")),
-               p("Thanks. You are done with the tapping part and we would like to ask just a few general questions about yourself before you leave us."),
+  prompt = div(h4(strong("Thanks! We would love to know more about you...")),
+               p("You are done with the tapping part and we would like to ask just a few general questions about yourself before you leave us."),
                p(strong ("What is your age?")),
                ),
   save_answer=TRUE,
@@ -286,7 +285,7 @@ consent<-NAFC_page(
             p("Are you happy with that?")
              )
             ),
-choices = c("YES, you can use my data as described","NO, please delete my data ASAP"),
+choices = c("YES, you can use my data as described","NO, please use my data only for teaching purposes"),
 on_complete = function(answer, state, ...) {
   set_global(key = "consent", value = answer, state = state)
 }

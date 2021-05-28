@@ -1,26 +1,20 @@
+// This randomizer is for use when participants must be randomly allocated
+// to one of three separate experiments. Here, we only present one experiment
+// but the quickest fix that ensures proper preload was to just enter the same stims three times
+// ... sorry ;)
+
 var stimuliExpRandomizer = {},
     stimuliExpRandomizerRandomNb = Math.floor(Math.random() * 100);
 
-if (stimuliExpRandomizerRandomNb < 27){
+if (stimuliExpRandomizerRandomNb < 27) {
     stimuliExpRandomizerRandomNb = 0;
 }
-else if (stimuliExpRandomizerRandomNb < 60){
+else if (stimuliExpRandomizerRandomNb < 60) {
     stimuliExpRandomizerRandomNb = 1;
 }
 else {
     stimuliExpRandomizerRandomNb = 2;
 }
-
-// Aug 3rd 2020 (2 weeks before end of data collection) the numbers above were changed (on server only) 
-// to < 18 and < 36 in order to maintain the intended proportions, as apparently more 
-// participants dropped out of the ratio (actual proportion = 37.4 %, intended = 40%) 
-// than pitch (27.4% vs 27%) and tempo (35.1% vs 33%) experiments. 
-
-// Numbers above were too radical, so Aug 4th 2020 numbers were changed (on server only again) to <50 and <95 leaving 
-// only 5% responses to the ratio exp.
-
-
-
 
 // ###########################
 /**
@@ -31,7 +25,7 @@ else {
  * array of stimulis. This result is stored so that
  * we can return the same array when asking for exp data.
  */
-stimuliExpRandomizer.randomizeStimuli = function(type) {
+stimuliExpRandomizer.randomizeStimuli = function (type) {
     var randomNb = stimuliExpRandomizerRandomNb,
         sound_check_stim = [
             "sounds/tempo/poly_tempo_loudness_check.mp3",
@@ -39,38 +33,46 @@ stimuliExpRandomizer.randomizeStimuli = function(type) {
             "sounds/tempo/poly_tempo_loudness_check.mp3"
         ],
         dataArray = [
-            [                                        
-                "sounds/2_3_90_135_three.mp3",
-                "sounds/2_3_90_135_two.mp3",
-                "sounds/2_3_135_203_three.mp3",
-                "sounds/2_3_135_203_two.mp3"
-                
+            [
+                "sounds/2_3_90_135_three_short.mp3",
+                "sounds/2_3_90_135_two_short.mp3",
+                "sounds/2_3_135_203_three_short.mp3",
+                "sounds/2_3_135_203_two_short.mp3",
+                "sounds/2_3_90_135_three_long.mp3",
+                "sounds/2_3_90_135_two_long.mp3",
+                "sounds/2_3_135_203_three_long.mp3",
+                "sounds/2_3_135_203_two_long.mp3"
+
             ],
             [
-                "sounds/2_3_90_135_three.mp3",
-                "sounds/2_3_90_135_two.mp3",
-                "sounds/2_3_135_203_three.mp3",
-                "sounds/2_3_135_203_two.mp3"
+                "sounds/2_3_90_135_three_short.mp3",
+                "sounds/2_3_90_135_two_short.mp3",
+                "sounds/2_3_135_203_three_short.mp3",
+                "sounds/2_3_135_203_two_short.mp3",
+                "sounds/2_3_90_135_three_long.mp3",
+                "sounds/2_3_90_135_two_long.mp3",
+                "sounds/2_3_135_203_three_long.mp3",
+                "sounds/2_3_135_203_two_long.mp3"
             ],
             [
-                "sounds/2_3_90_135_three.mp3",
-                "sounds/2_3_90_135_two.mp3",
-                "sounds/2_3_135_203_three.mp3",
-                "sounds/2_3_135_203_two.mp3"                
+                "sounds/2_3_90_135_three_short.mp3",
+                "sounds/2_3_90_135_two_short.mp3",
+                "sounds/2_3_135_203_three_short.mp3",
+                "sounds/2_3_135_203_two_short.mp3",
+                "sounds/2_3_90_135_three_long.mp3",
+                "sounds/2_3_90_135_two_long.mp3",
+                "sounds/2_3_135_203_three_long.mp3",
+                "sounds/2_3_135_203_two_long.mp3"
             ],
 
         ],
         spontArray = [
-            "sounds/2_3_90_135_spont.mp3",  
+            "sounds/2_3_90_135_spont.mp3",
             "sounds/2_3_135_203_spont.mp3"];
-
-        // maskArray = [
-        //     "sounds/r21_5_6_125ms.mp3",  
-        //     "sounds/r21_5_6_167ms.mp3"];
 
 
     switch (type) {
-        case 'preload':  
+        case 'preload':
             myNewArray = [];
             spontArray.forEach(element => {
                 dataArray[randomNb].push(element)
@@ -80,18 +82,17 @@ stimuliExpRandomizer.randomizeStimuli = function(type) {
             break;
         case 'exp':
             console.log('number is ' + randomNb)
-            return [sound_check_stim[randomNb],stimuliExpRandomizer.createExpArray(dataArray[randomNb])]
+            return [sound_check_stim[randomNb], stimuliExpRandomizer.createExpArray(dataArray[randomNb])]
             break;
         case 'spont':
             return stimuliExpRandomizer.createExpArray(spontArray)
-        // case 'mask':
-        //     return stimuliExpRandomizer.createExpArray(maskArray)    
+
         default:
             break;
     }
 }
 
-stimuliExpRandomizer.createExpArray = function(myArray) {
+stimuliExpRandomizer.createExpArray = function (myArray) {
     var myObj = {},
         myNewArray = [];
     myArray.forEach(element => {
