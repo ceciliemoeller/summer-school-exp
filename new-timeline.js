@@ -104,7 +104,8 @@ var spont = {
   type: "audio-bpm-button-response",
   stimulus: jsPsych.timelineVariable('stimulus'),
   prompt: "<p class='font15'>Use your touch screen, clickpad/button or mouse</p>",
-  choices: ["<p class='font15'> <strong>WAIT until you hear the bell. Then...</strong></p>" +
+  choices: ["<p class='font15'> <strong>WAIT until you hear the bell.</strong></p>" +
+  "<p class='font15'> <strong>Then...</strong></p>" +
     "<p class='font'> <strong>Tap here!</strong></p>"]
 }
 

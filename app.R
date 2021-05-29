@@ -120,6 +120,30 @@ device <-dropdown_page(
   on_complete = function(answer, state, ...) {
     set_global(key = "device", value = answer, state = state)
   }     
+),
+
+headphones<-dropdown_page(
+  label = "headphones",
+  prompt = div(h4(strong("Headphones?")),
+               p("If at all possible, please use headphones!"),
+               p("How do you play the sounds?"),
+  ),
+  save_answer=TRUE,
+  choices = c("I will play sounds through...", "over-ear headphones", "on-ear headphones","in-ear headphones", "my device's internal speakers", "external speakers"),
+  alternative_choice = TRUE,
+  alternative_text = "Other - please state which?",
+  next_button_text = "Next",
+  max_width_pixels = 260,
+  validate = function(answer, ...) {
+    if (answer=="I will play sounds through...")
+      "Please tells how you will hear the sounds (click the small arrow on the right of the first box to see the options). We ask because it matters for the analyses of the data you provide."
+    else if (answer=="") 
+      "If you select 'Other' at the bottom of the list, please state in the designated field which kind of headphones or speakers you use."
+    else TRUE
+  },
+  on_complete = function(answer, state, ...) {
+    set_global(key = "headphones", value = answer, state = state)
+  }  
 )
 )
 
@@ -304,11 +328,9 @@ elts <- join(
    elt_save_results_to_disk(complete = FALSE),
    sound_check,
    poly_ratio,
-   elt_save_results_to_disk(complete = FALSE), # anything that is saved here counts as completed
+   elt_save_results_to_disk(complete = FALSE),
    age,
    gender,
-   elt_save_results_to_disk(complete = FALSE),
-   # demographics,
    elt_save_results_to_disk(complete = FALSE),
    music_exp,
    elt_save_results_to_disk(complete = FALSE),
@@ -329,8 +351,8 @@ elts <- join(
                         researcher_email="cecilie@clin.au.dk",
                         problems_info="Problems? Contact cecilie@clin.au.dk",
                         display = display_options(
-                         full_screen = TRUE,
-                         css = c(file.path(jspsych_dir, "css/jspsych.css"),"css/style.css")
+                        full_screen = TRUE,
+                        css = c(file.path(jspsych_dir, "css/jspsych.css"),"css/style.css")
          )))
 
 # shiny::runApp(".")
