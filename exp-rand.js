@@ -28,9 +28,9 @@ else {
 stimuliExpRandomizer.randomizeStimuli = function (type) {
     var randomNb = stimuliExpRandomizerRandomNb,
         sound_check_stim = [
-            "sounds/tempo/poly_tempo_loudness_check.mp3",
-            "sounds/tempo/poly_tempo_loudness_check.mp3",
-            "sounds/tempo/poly_tempo_loudness_check.mp3"
+            "sounds/poly_tempo_loudness_check.mp3",
+            "sounds/poly_tempo_loudness_check.mp3",
+            "sounds/poly_tempo_loudness_check.mp3"
         ],
         dataArray = [
             [
